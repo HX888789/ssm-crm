@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <setting name="logImpl" value="STDOUT_LOGGING"/>
+    </settings>
+    <!--   设置别名-->
+    <typeAliases>
+        <package name="com.hx.crm.settings.domain"/>
+        <package name="com.hx.crm.workbench.domain"/>
+    </typeAliases>
+    <mappers>
+        <package name="com.hx.crm.settings.dao"/>
+        <package name="com.hx.crm.workbench.dao"/>
+    </mappers>
+</configuration>

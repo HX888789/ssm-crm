@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hx.crm.workbench.dao.TranDao">
+    <update id="changeStage">
+
+        update tbl_tran set stage = #{stage} ,editBy = #{editBy} , editTime = #{editTime}
+        where id = #{id}
+
+
+    </update>
+
+
+     <select id="detail" resultType="Tran">
+
+             select
+                 tran.id,
+                 user.name as owner,
+                 tran.money,
+                 tran.name,
+                 tran.expectedDate,
+                 cus.name as customerId,
+                 tran.stage,
+                 tran.type,
+                 tran.source,
+                 act.name as activityId,
+                 con.fullname as contactsId,
+                 tran.createBy,
+                 tran.createTime,
+                 tran.editBy,
+                 tran.editTime,
+                 tran.description,
+                 tran.contactSummary,
+                 tran.nextContactTime
+
+             from tbl_tran tran
+             join tbl_user user
+             on tran.owner=user.id
+             join tbl_customer cus
+             on tran.customerId=cus.id
+             left join tbl_activity act
+             on tran.activityId=act.id
+             left join tbl_contacts con
+             on tran.contactsId=con.id
+             where tran.id = #{id};
+
+     </select>
+
+    <insert id="save">
+
+         insert into tbl_tran (
+             id,
+             owner,
+             money,
+             name,
+             expectedDate,
+             customerId,
+             stage,
+             type,
+             source,
+             activityId,
+             contactsId,
+             createBy,
+             createTime,
+             description,
+             contactSummary,
+             nextContactTime
+
+         )
+         values (
+
+             #{id},
+             #{owner},
+             #{money},
+             #{name},
+             #{expectedDate},
+             #{customerId},
+             #{stage},
+             #{type},
+             #{source},
+             #{activityId},
+             #{contactsId},
+             #{createBy},
+             #{createTime},
+             #{description},
+             #{contactSummary},
+             #{nextContactTime}
+
+                )
+
+    </insert>
+	
+  	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

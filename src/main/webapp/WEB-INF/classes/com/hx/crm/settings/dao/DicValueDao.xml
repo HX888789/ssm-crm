@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hx.crm.settings.dao.DicValueDao">
+    <select id="getListByCode" resultType="DicValue">
+
+       select * from tbl_dic_value where typeCode=#{code} order by orderNo;
+    </select>
+
+
+</mapper>

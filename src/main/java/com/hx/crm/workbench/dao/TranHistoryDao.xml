@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.hx.crm.workbench.dao.TranHistoryDao">
+
+    <select id="getHistoryListByTranId" resultType="TranHistory">
+
+        select * from tbl_tran_history where tranId = #{TranId};
+
+
+    </select>
+
+
+    <insert id="save">
+
+      insert into tbl_tran_history(
+          id,
+          stage,
+          money,
+          expectedDate,
+          createTime,
+          createBy,
+          tranId
+
+
+      )values (
+          #{id},
+          #{stage},
+          #{money},
+          #{expectedDate},
+          #{createTime},
+          #{createBy},
+          #{tranId}
+
+                    )
+    </insert>
+	
+  	
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
